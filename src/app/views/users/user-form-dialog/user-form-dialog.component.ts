@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { User } from 'src/app/shared/models/user.model';
-import { UserService } from 'src/app/shared/services/user.service';
+import { User } from '../../../shared/models/user.model';
+import { UserService } from '../../../shared/services/user.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 
