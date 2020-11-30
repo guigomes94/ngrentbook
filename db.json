@@ -49,16 +49,16 @@
       "name": "Dan Brown"
     },
     {
-      "id": 2,
-      "name": "Léo Lins"
+      "id": 4,
+      "name": "Arthur Conan Doyle"
     },
     {
-      "id": 3,
+      "id": 5,
       "name": "John Green"
     },
     {
-      "id": 4,
-      "name": "Arthur Conan Doyle"
+      "name": "Léo Lins",
+      "id": 6
     }
   ],
   "books": [],

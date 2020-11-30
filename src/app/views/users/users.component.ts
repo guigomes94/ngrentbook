@@ -7,7 +7,7 @@ import { UserFormDialogComponent } from './user-form-dialog/user-form-dialog.com
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css', '../../app.component.css']
 })
 export class UsersComponent implements OnInit {
 

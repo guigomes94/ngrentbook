@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
@@ -26,6 +27,7 @@ import { AuthorsComponent } from './views/authors/authors.component';
 import { RentsComponent } from './views/rents/rents.component';
 import { ReservationsComponent } from './views/reservations/reservations.component';
 import { ReportsComponent } from './views/reports/reports.component';
+import { AuthorFormDialogComponent } from './views/authors/author-form-dialog/author-form-dialog.component';
 
 
 @NgModule({
@@ -36,10 +38,11 @@ import { ReportsComponent } from './views/reports/reports.component';
     UserFormDialogComponent,
     NavbarComponent,
     BooksComponent,
-    AuthorsComponent,
     RentsComponent,
     ReservationsComponent,
-    ReportsComponent
+    ReportsComponent,
+    AuthorsComponent,
+    AuthorFormDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -56,7 +59,8 @@ import { ReportsComponent } from './views/reports/reports.component';
     MatDialogModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

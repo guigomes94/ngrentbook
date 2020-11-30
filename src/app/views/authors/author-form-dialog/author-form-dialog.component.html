@@ -1,0 +1,19 @@
+<div *ngIf="!authorForm.value.id; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><h1 mat-dialog-title>Novo Autor</h1></ng-template>
+<ng-template #elseBlock><h1 mat-dialog-title>Editar Autor</h1></ng-template>
+
+<div mat-dialog-content>
+  <form class="author-form" [formGroup]="authorForm">
+
+    <mat-form-field class="field-width">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" name="name">
+    </mat-form-field>
+
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="createOrUpdateAuthor()">Salvar</button>
+</div>
