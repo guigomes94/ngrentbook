@@ -5,7 +5,7 @@ import { User } from '../../../shared/models/user.model';
 import { UserService } from '../../../shared/services/user.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
-import { UserFirestoreService } from 'src/app/shared/services/user-firestore.service';
+import { UserFirestoreService } from '../../../shared/services/user-firestore.service';
 
 @Component({
   selector: 'app-user-form-dialog',
