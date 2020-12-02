@@ -48,7 +48,7 @@ export class AuthorsComponent implements OnInit {
 
   edit(Author: Author): void {
     const dialogRef = this.dialog.open(AuthorFormDialogComponent, {
-      minWidth: '600px',
+      minWidth: '300px',
       data: {
         data: Author,
       }

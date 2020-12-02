@@ -3,7 +3,7 @@
   <ng-container *ngFor="let user of users">
     <mat-card class="card-user" fxLayout="column" fxLayoutAlign="center end">
       <img mat-card-image [src]="user.avatar" alt="avatar">
-        <mat-card-title>{{ user.name }}</mat-card-title>
+        <mat-card-title>{{ user.name | titlecase }}</mat-card-title>
         <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
         <mat-card-actions>
           <button mat-icon-button (click)="edit(user)"><mat-icon>edit</mat-icon></button>

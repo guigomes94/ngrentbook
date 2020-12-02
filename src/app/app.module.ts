@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { FirestoreModule } from './firestore/firestore.module'
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
@@ -60,7 +61,8 @@ import { AuthorFormDialogComponent } from './views/authors/author-form-dialog/au
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    FirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
