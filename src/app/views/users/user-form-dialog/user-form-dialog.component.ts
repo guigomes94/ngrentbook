@@ -5,7 +5,6 @@ import { User } from '../../../shared/models/user.model';
 import { UserService } from '../../../shared/services/user.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
-import { UserFirestoreService } from '../../../shared/services/user-firestore.service';
 
 @Component({
   selector: 'app-user-form-dialog',
@@ -21,7 +20,6 @@ export class UserFormDialogComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private userFirestoreService: UserFirestoreService,
     public dialogRef: MatDialogRef<UserFormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
@@ -52,11 +50,11 @@ export class UserFormDialogComponent implements OnInit {
     const user = this.userForm.value;
 
     if (user.id) {
-      this.userFirestoreService.update(user).subscribe(res => {
+      this.userService.update(user).subscribe(res => {
         this.dialogRef.close(res);
       });
     } else {
-      this.userFirestoreService.add(user).subscribe(res => {
+      this.userService.add(user).subscribe(res => {
         this.dialogRef.close(res);
       });
     }
