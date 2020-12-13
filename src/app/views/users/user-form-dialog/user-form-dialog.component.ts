@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from '../../../shared/models/user.model';
-import { UserService } from '../../../shared/services/user.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 import { UserFirestoreService } from '../../../shared/services/user-firestore.service';
@@ -20,7 +19,6 @@ export class UserFormDialogComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService,
     private userFirestoreService: UserFirestoreService,
     public dialogRef: MatDialogRef<UserFormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any

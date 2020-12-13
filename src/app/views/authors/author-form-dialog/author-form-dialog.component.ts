@@ -2,7 +2,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Author } from '../../../shared/models/author.model';
-import { AuthorService } from '../../../shared/services/author.service';
 
 @Component({
   selector: 'app-author-form-dialog',
@@ -17,7 +16,6 @@ export class AuthorFormDialogComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private authorService: AuthorService,
     public dialogRef: MatDialogRef<AuthorFormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
@@ -42,11 +40,11 @@ export class AuthorFormDialogComponent implements OnInit {
     const author = this.authorForm.value;
 
     if (author.id) {
-      this.authorService.update(author).subscribe(res => {
+      this.authorFirestoreService.update(author).subscribe(res => {
         this.dialogRef.close(res);
       });
     } else {
-      this.authorService.add(author).subscribe(res => {
+      this.authorFirestoreService.add(author).subscribe(res => {
         this.dialogRef.close(res);
       });
     }

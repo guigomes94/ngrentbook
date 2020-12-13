@@ -1,5 +1,5 @@
 <button (click)="addUser()" class="add-button" mat-raised-button ><mat-icon>add</mat-icon> Novo usuário</button>
-<div fxLayout="row wrap" fxLayoutAlign="center">
+<div fxLayout="row wrap" fxLayoutAlign="space-around">
   <ng-container *ngFor="let user of users">
     <mat-card class="card-user" fxLayout="column" fxLayoutAlign="center end">
       <img mat-card-image [src]="user.avatar" alt="avatar">
