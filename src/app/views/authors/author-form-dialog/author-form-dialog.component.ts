@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AuthorFirestoreService } from 'src/app/shared/services/author-firestore.service';
 import { Author } from '../../../shared/models/author.model';
 
 @Component({
@@ -16,6 +17,7 @@ export class AuthorFormDialogComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private authorFirestoreService: AuthorFirestoreService,
     public dialogRef: MatDialogRef<AuthorFormDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {

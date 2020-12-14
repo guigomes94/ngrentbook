@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
+import { AuthorFirestoreService } from 'src/app/shared/services/author-firestore.service';
 import { Author } from '../../shared/models/author.model';
-import { AuthorService } from '../../shared/services/author.service';
 import { AuthorFormDialogComponent } from './author-form-dialog/author-form-dialog.component';
 
 @Component({
@@ -18,32 +18,27 @@ export class AuthorsComponent implements OnInit {
   showColumns = ['id', 'name', 'actions'];
 
   constructor(
-    private AuthorService: AuthorService,
+    private authorFirestoreService: AuthorFirestoreService,
     public dialog: MatDialog,
   ) { }
 
   ngOnInit() {
-    this.getAllAuthors();
+    this.listAll();
+  }
+
+  listAll() {
+    this.authorFirestoreService.list().subscribe( data => {
+        this.dataSource = new MatTableDataSource(data);
+      });
   }
 
   addAuthor(): void {
     const dialogRef = this.dialog.open(AuthorFormDialogComponent, {
-      minWidth: '600px',
+      minWidth: '300px',
       data: {}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.dataSource.data.push(result);
-        this.dataSource = new MatTableDataSource(this.dataSource.data);
-      }
-    });
-  }
-
-  getAllAuthors() {
-    this.AuthorService.listAll().subscribe( data => {
-        this.dataSource = new MatTableDataSource(data);
-      });
+    dialogRef.afterClosed().subscribe();
   }
 
   edit(Author: Author): void {
@@ -54,27 +49,11 @@ export class AuthorsComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(
-      res => {
-        if (res) {
-          const indiceAEditar = this.dataSource.data.findIndex(obj => obj.id === res.id);
-          this.dataSource.data[indiceAEditar] = res
-          this.dataSource = new MatTableDataSource(this.dataSource.data);
-        }
-      }
-    );
+    dialogRef.afterClosed().subscribe();
   }
 
   remove(Author: Author): void {
-    this.AuthorService.remove(Author.id).subscribe(
-      res => {
-        const indiceARemover = this.dataSource.data.findIndex(obj => obj.id === Author.id);
-        if (indiceARemover > -1) {
-          this.dataSource.data.splice(indiceARemover, 1);
-          this.dataSource = new MatTableDataSource<Author>(this.dataSource.data);
-        }
-      }
-    );
+    this.authorFirestoreService.remove(Author.id).subscribe();
   }
 
 }
