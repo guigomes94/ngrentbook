@@ -59,5 +59,4 @@ export class AuthorFormDialogComponent implements OnInit {
     this.authorForm.reset();
   }
 
-
 }

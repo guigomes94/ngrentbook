@@ -2,7 +2,9 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-around">
   <ng-container *ngFor="let user of users">
     <mat-card class="card-user" fxLayout="column" fxLayoutAlign="center end">
-      <img mat-card-image [src]="user.avatar" alt="avatar">
+      <div *ngIf="!user.avatar; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock><img mat-card-image [src]="imgPath" alt="avatar"></ng-template>
+        <ng-template #elseBlock><img mat-card-image [src]="user.avatar" alt="avatar"></ng-template>
         <mat-card-title>{{ user.name | titlecase }}</mat-card-title>
         <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
         <mat-card-actions>

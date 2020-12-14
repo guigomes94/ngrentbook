@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { AuthorFirestoreService } from 'src/app/shared/services/author-firestore.service';
+import { AuthorFirestoreService } from '../../shared/services/author-firestore.service';
 import { Author } from '../../shared/models/author.model';
 import { AuthorFormDialogComponent } from './author-form-dialog/author-form-dialog.component';
 
@@ -41,19 +41,19 @@ export class AuthorsComponent implements OnInit {
     dialogRef.afterClosed().subscribe();
   }
 
-  edit(Author: Author): void {
+  edit(author: Author): void {
     const dialogRef = this.dialog.open(AuthorFormDialogComponent, {
       minWidth: '300px',
       data: {
-        data: Author,
+        data: author,
       }
     });
 
     dialogRef.afterClosed().subscribe();
   }
 
-  remove(Author: Author): void {
-    this.authorFirestoreService.remove(Author.id).subscribe();
+  remove(author: Author): void {
+    this.authorFirestoreService.remove(author.id).subscribe();
   }
 
 }

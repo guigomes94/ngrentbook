@@ -1,0 +1,36 @@
+<div *ngIf="!bookForm.value.id; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><h1 mat-dialog-title>Novo Livro</h1></ng-template>
+<ng-template #elseBlock><h1 mat-dialog-title>Editar Livro</h1></ng-template>
+
+<div mat-dialog-content>
+  <form fxLayout="column" class="book-form" [formGroup]="bookForm">
+
+    <mat-form-field class="field-width">
+      <mat-label>Título</mat-label>
+      <input matInput formControlName="title" name="title">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Autor</mat-label>
+      <mat-select formControlName="author" name="author">
+        <mat-option *ngFor="let a of authors" [value]="a.name">
+          {{ a.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Disponível</mat-label>
+      <mat-select formControlName="available" name="available">
+        <mat-option value="true"> Sim </mat-option>
+        <mat-option value="false"> Não </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="createOrUpdateBook()">Salvar</button>
+</div>

@@ -23,12 +23,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { UserFormDialogComponent } from './views/users/user-form-dialog/user-form-dialog.component';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+
 import { BooksComponent } from './views/books/books.component';
 import { AuthorsComponent } from './views/authors/authors.component';
 import { RentsComponent } from './views/rents/rents.component';
 import { ReservationsComponent } from './views/reservations/reservations.component';
 import { ReportsComponent } from './views/reports/reports.component';
 import { AuthorFormDialogComponent } from './views/authors/author-form-dialog/author-form-dialog.component';
+import { BookFormDialogComponent } from './views/books/book-form-dialog/book-form-dialog.component';
 
 
 @NgModule({
@@ -43,7 +46,8 @@ import { AuthorFormDialogComponent } from './views/authors/author-form-dialog/au
     ReservationsComponent,
     ReportsComponent,
     AuthorsComponent,
-    AuthorFormDialogComponent
+    AuthorFormDialogComponent,
+    BookFormDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -62,7 +66,8 @@ import { AuthorFormDialogComponent } from './views/authors/author-form-dialog/au
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    FirestoreModule
+    FirestoreModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
