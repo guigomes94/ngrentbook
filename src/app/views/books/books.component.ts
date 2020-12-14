@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { Book } from 'src/app/shared/models/book.model';
+import { Book } from '../../shared/models/book.model';
 import { BookFirestoreService } from '../../shared/services/book-firestore.service';
 import { BookFormDialogComponent } from './book-form-dialog/book-form-dialog.component';
 
@@ -43,7 +43,7 @@ export class BooksComponent implements OnInit {
 
   edit(Book: Book): void {
     const dialogRef = this.dialog.open(BookFormDialogComponent, {
-      minWidth: '300px',
+      minWidth: '450px',
       data: {
         data: Book,
       }

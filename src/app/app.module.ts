@@ -24,14 +24,20 @@ import { UserFormDialogComponent } from './views/users/user-form-dialog/user-for
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { BooksComponent } from './views/books/books.component';
 import { AuthorsComponent } from './views/authors/authors.component';
 import { RentsComponent } from './views/rents/rents.component';
 import { ReservationsComponent } from './views/reservations/reservations.component';
-import { ReportsComponent } from './views/reports/reports.component';
 import { AuthorFormDialogComponent } from './views/authors/author-form-dialog/author-form-dialog.component';
 import { BookFormDialogComponent } from './views/books/book-form-dialog/book-form-dialog.component';
+import { RentFormDialogComponent } from './views/rents/rent-form-dialog/rent-form-dialog.component';
+import { ReservationFormDialogComponent } from './views/reservations/reservation-form-dialog/reservation-form-dialog.component';
+import { TelefoneMaskPipe } from './shared/pipes/telefone-mask.pipe';
+import { DateFormatPipe } from './shared/pipes/date-format.pipe';
+import { MoneyFormatPipe } from './shared/pipes/money-format.pipe';
 
 
 @NgModule({
@@ -44,10 +50,14 @@ import { BookFormDialogComponent } from './views/books/book-form-dialog/book-for
     BooksComponent,
     RentsComponent,
     ReservationsComponent,
-    ReportsComponent,
     AuthorsComponent,
     AuthorFormDialogComponent,
-    BookFormDialogComponent
+    BookFormDialogComponent,
+    RentFormDialogComponent,
+    ReservationFormDialogComponent,
+    TelefoneMaskPipe,
+    DateFormatPipe,
+    MoneyFormatPipe
   ],
   imports: [
     HttpClientModule,
@@ -67,7 +77,9 @@ import { BookFormDialogComponent } from './views/books/book-form-dialog/book-for
     ReactiveFormsModule,
     MatTableModule,
     FirestoreModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

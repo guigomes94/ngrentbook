@@ -1,1 +1,49 @@
-<p>rents works!</p>
+<button (click)="addRent()" class="add-button" mat-raised-button ><mat-icon>add</mat-icon>Novo empréstimo</button>
+
+<mat-table class="table-width" [dataSource]="dataSource">
+  <mat-header-row *matHeaderRowDef="showColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: showColumns;"></mat-row>
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="user">
+    <mat-header-cell *matHeaderCellDef>Usuário</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.user }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.book }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="rentDate">
+    <mat-header-cell *matHeaderCellDef>Data empréstimo</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.rentDate | dateFormat }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="devolutionDate">
+    <mat-header-cell *matHeaderCellDef>Data devolução</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.devolutionDate | dateFormat }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="paymentValue">
+    <mat-header-cell *matHeaderCellDef>Valor</mat-header-cell>
+    <mat-cell *matCellDef="let item">R$ {{ item.paymentValue | moneyFormat }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+    <mat-cell *matCellDef="let item">
+      <button mat-icon-button (click)="edit(item)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button >
+        <mat-icon (click)="remove(item)">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+</mat-table>

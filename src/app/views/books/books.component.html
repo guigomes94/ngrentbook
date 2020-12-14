@@ -22,8 +22,8 @@
   <ng-container matColumnDef="available">
     <mat-header-cell *matHeaderCellDef>Disponível</mat-header-cell>
     <mat-cell *matCellDef="let item">
-      <td *ngIf="item.available === true.toString()"> Sim </td>
-      <td *ngIf="item.available === false.toString()"> Não </td>
+      <td *ngIf="item.available === true"> Sim </td>
+      <td *ngIf="item.available === false"> Não </td>
     </mat-cell>
   </ng-container>
 

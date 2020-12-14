@@ -1,1 +1,39 @@
-<p>reservations works!</p>
+<button (click)="addReservation()" class="add-button" mat-raised-button ><mat-icon>add</mat-icon>Nova reserva</button>
+
+<mat-table class="table-width" [dataSource]="dataSource">
+  <mat-header-row *matHeaderRowDef="showColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: showColumns;"></mat-row>
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="user">
+    <mat-header-cell *matHeaderCellDef>Usuário</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.user }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.book }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="rentDate">
+    <mat-header-cell *matHeaderCellDef>Data empréstimo</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.rentDate | dateFormat }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+    <mat-cell *matCellDef="let item">
+      <button mat-icon-button (click)="edit(item)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button >
+        <mat-icon (click)="remove(item)">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+</mat-table>

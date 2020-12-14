@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Author } from 'src/app/shared/models/author.model';
-import { Book } from 'src/app/shared/models/book.model';
+import { Author } from '../../../shared/models/author.model';
+import { Book } from '../../../shared/models/book.model';
 import { BookFirestoreService } from '../../../shared/services/book-firestore.service';
 import { AuthorFirestoreService } from '../../../shared/services/author-firestore.service';
 
@@ -59,9 +59,9 @@ export class BookFormDialogComponent implements OnInit {
     const book = this.bookForm.value;
 
     if (book.available === 'true') {
-      book.available === true;
+      book.available = true;
     } else {
-      book.available === false;
+      book.available = false;
     }
 
     if (book.id) {

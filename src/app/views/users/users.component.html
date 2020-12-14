@@ -6,6 +6,7 @@
         <ng-template #thenBlock><img mat-card-image [src]="imgPath" alt="avatar"></ng-template>
         <ng-template #elseBlock><img mat-card-image [src]="user.avatar" alt="avatar"></ng-template>
         <mat-card-title>{{ user.name | titlecase }}</mat-card-title>
+        <mat-card-title>{{ user.phone | telefoneMask }}</mat-card-title>
         <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
         <mat-card-actions>
           <button mat-icon-button (click)="edit(user)"><mat-icon>edit</mat-icon></button>

@@ -1,0 +1,39 @@
+<div *ngIf="!reservationForm.value.id; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><h1 mat-dialog-title>Nova Reserva</h1></ng-template>
+<ng-template #elseBlock><h1 mat-dialog-title>Editar Reserva</h1></ng-template>
+
+<div mat-dialog-content>
+  <form fxLayout="column" class="reservation-form" [formGroup]="reservationForm">
+
+    <mat-form-field>
+      <mat-label>Usuário</mat-label>
+      <mat-select formControlName="user" name="user">
+        <mat-option *ngFor="let u of users" [value]="u.name">
+          {{ u.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Título</mat-label>
+      <mat-select formControlName="book" name="book">
+        <mat-option *ngFor="let b of books" [value]="b.title">
+          {{ b.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Data empréstimo</mat-label>
+      <input matInput [matDatepicker]="picker1" formControlName="rentDate" name="rentDate">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="createOrUpdateReservation()">Salvar</button>
+</div>
