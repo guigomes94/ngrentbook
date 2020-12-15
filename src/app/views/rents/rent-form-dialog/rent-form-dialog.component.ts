@@ -65,7 +65,7 @@ export class RentFormDialogComponent implements OnInit {
   }
 
   listBooks() {
-    this.bookFirestoreService.list().subscribe(data => {
+    this.bookFirestoreService.findBooksAvailables().subscribe(data => {
       this.books = data;
     })
   }

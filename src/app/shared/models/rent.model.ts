@@ -2,8 +2,8 @@ export class Rent {
   id?: string;
   user?: string;
   book?: string;
-  rentDate?: Date;
-  devolutionDate?: Date;
+  rentDate?: any;
+  devolutionDate?: any;
   paymentValue?: Number;
 
   constructor(id?: string, rent: Rent = {}) {

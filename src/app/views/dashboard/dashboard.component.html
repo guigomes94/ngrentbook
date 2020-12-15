@@ -1,1 +1,38 @@
-<h1>works</h1>
+<div fxLayout="row wrap" fxLayoutAlign="space-around">
+
+  <div fxFlex="40">
+    <h1>Last Rents</h1>
+    <mat-table class="table-width" [dataSource]="dataSourceRents">
+      <mat-header-row *matHeaderRowDef="showColumnsRents"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: showColumnsRents;"></mat-row>
+
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.book }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="rentDate">
+        <mat-header-cell *matHeaderCellDef>Data empréstimo</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.rentDate | dateFormat }}</mat-cell>
+      </ng-container>
+    </mat-table>
+  </div>
+
+  <div fxFlex="40">
+    <h1>Next Devolutions</h1>
+    <mat-table class="table-width" [dataSource]="dataSourceDevolutions">
+      <mat-header-row *matHeaderRowDef="showColumnsDevolutions"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: showColumnsDevolutions;"></mat-row>
+
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef>Título</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.book }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="devolutionDate">
+        <mat-header-cell *matHeaderCellDef>Data devolução</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.devolutionDate | dateFormat }}</mat-cell>
+      </ng-container>
+    </mat-table>
+  </div>
+</div>

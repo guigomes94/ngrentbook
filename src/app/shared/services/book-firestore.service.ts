@@ -24,6 +24,12 @@ export class BookFirestoreService {
     return this.bookCollection.doc(id).get().pipe(map(document => new Book(document.id, document.data())));
   }
 
+  findBooksAvailables(): Observable<Book[]> {
+    let booksAvailable: AngularFirestoreCollection<Book>;
+    booksAvailable = this.afs.collection(this.COLLECTION_NAME, ref => ref.where('available', '==', true));
+    return booksAvailable.valueChanges();
+  }
+
   add(Book: Book): Observable<object> {
     return from(this.bookCollection.add(Object.assign({}, Book)));
   }
