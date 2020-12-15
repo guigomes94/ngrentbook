@@ -38,7 +38,7 @@ export class BookFormDialogComponent implements OnInit {
         id: [this.book.id],
         title: [this.book.title, [Validators.required]],
         author: [this.book.author, [Validators.required]],
-        available: [this.book.available, [Validators.required]],
+        available: [this.book.available.toString(), [Validators.required]],
       })
     } else {
       this.bookForm = this.fb.group({

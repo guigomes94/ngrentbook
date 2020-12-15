@@ -26,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { BooksComponent } from './views/books/books.component';
 import { AuthorsComponent } from './views/authors/authors.component';
@@ -79,7 +80,8 @@ import { MoneyFormatPipe } from './shared/pipes/money-format.pipe';
     FirestoreModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

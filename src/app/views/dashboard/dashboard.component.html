@@ -1,7 +1,7 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-around">
 
-  <div fxFlex="40">
-    <h1>Last Rents</h1>
+  <div fxFlex="40" class="marginTop">
+    <mat-chip fxLayoutAlign="center" color="primary" selected>Últimos empréstimos</mat-chip>
     <mat-table class="table-width" [dataSource]="dataSourceRents">
       <mat-header-row *matHeaderRowDef="showColumnsRents"></mat-header-row>
       <mat-row *matRowDef="let row; columns: showColumnsRents;"></mat-row>
@@ -18,8 +18,8 @@
     </mat-table>
   </div>
 
-  <div fxFlex="40">
-    <h1>Next Devolutions</h1>
+  <div fxFlex="40" class="marginTop">
+    <mat-chip fxLayoutAlign="center" color="primary" selected>Próximas devoluções</mat-chip>
     <mat-table class="table-width" [dataSource]="dataSourceDevolutions">
       <mat-header-row *matHeaderRowDef="showColumnsDevolutions"></mat-header-row>
       <mat-row *matRowDef="let row; columns: showColumnsDevolutions;"></mat-row>
