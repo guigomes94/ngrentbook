@@ -49,16 +49,17 @@ import { MoneyFormatPipe } from './shared/pipes/money-format.pipe';
     UserFormDialogComponent,
     NavbarComponent,
     BooksComponent,
+    BookFormDialogComponent,
     RentsComponent,
+    RentFormDialogComponent,
     ReservationsComponent,
+    ReservationFormDialogComponent,
     AuthorsComponent,
     AuthorFormDialogComponent,
-    BookFormDialogComponent,
-    RentFormDialogComponent,
-    ReservationFormDialogComponent,
     TelefoneMaskPipe,
     DateFormatPipe,
-    MoneyFormatPipe
+    MoneyFormatPipe,
+
   ],
   imports: [
     HttpClientModule,

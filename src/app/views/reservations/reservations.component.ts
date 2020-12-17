@@ -56,5 +56,4 @@ export class ReservationsComponent implements OnInit {
     this.reservationFirestoreService.remove(reservation.id).subscribe();
   }
 
-
 }
