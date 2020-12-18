@@ -26,6 +26,10 @@ export class AuthorsComponent implements OnInit {
     this.listAll();
   }
 
+  filter(texto: string): void {
+    this.dataSource.filter = texto.trim().toLowerCase();
+  }
+
   listAll() {
     this.authorFirestoreService.list().subscribe( data => {
         this.dataSource = new MatTableDataSource(data);

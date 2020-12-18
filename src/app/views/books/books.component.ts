@@ -26,6 +26,10 @@ export class BooksComponent implements OnInit {
     this.listAll();
   }
 
+  filter(texto: string): void {
+    this.dataSource.filter = texto.trim().toLowerCase();
+  }
+
   listAll() {
     this.bookFirestoreService.list().subscribe( data => {
         this.dataSource = new MatTableDataSource(data);

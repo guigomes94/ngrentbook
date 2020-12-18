@@ -1,29 +1,36 @@
 <button (click)="addAuthor()" class="add-button" mat-raised-button ><mat-icon>add</mat-icon>Novo autor</button>
 
-<mat-table class="table-width" [dataSource]="dataSource">
-  <mat-header-row *matHeaderRowDef="showColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: showColumns;"></mat-row>
+<div>
+  <mat-form-field fxLayoutAlign="center">
+    <mat-label>Filtrar: </mat-label>
+    <input matInput placeholder="Filtre por qualquer campo" (keyup)="filter(inputFiltro.value)" #inputFiltro>
+  </mat-form-field>
 
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{ item.id }}</mat-cell>
-  </ng-container>
+  <mat-table class="table-width" [dataSource]="dataSource">
+    <mat-header-row *matHeaderRowDef="showColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: showColumns;"></mat-row>
 
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
-    <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+      <mat-cell *matCellDef="let item">{{ item.id }}</mat-cell>
+    </ng-container>
 
-  <ng-container matColumnDef="actions">
-    <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
-    <mat-cell *matCellDef="let item">
-      <button mat-icon-button (click)="edit(item)">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-icon-button >
-        <mat-icon (click)="remove(item)">delete</mat-icon>
-      </button>
-    </mat-cell>
-  </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell>
+    </ng-container>
 
-</mat-table>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <button mat-icon-button (click)="edit(item)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button >
+          <mat-icon (click)="remove(item)">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+  </mat-table>
+</div>

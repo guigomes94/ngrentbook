@@ -26,6 +26,10 @@ export class ReservationsComponent implements OnInit {
     this.listAll();
   }
 
+  filter(texto: string): void {
+    this.dataSource.filter = texto.trim().toLowerCase();
+  }
+
   listAll() {
     this.reservationFirestoreService.list().subscribe( data => {
         this.dataSource = new MatTableDataSource(data);

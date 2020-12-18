@@ -26,6 +26,10 @@ export class RentsComponent implements OnInit {
     this.listAll();
   }
 
+  filter(texto: string): void {
+    this.dataSource.filter = texto.trim().toLowerCase();
+  }
+
   listAll() {
     this.rentFirestoreService.list().subscribe( data => {
         this.dataSource = new MatTableDataSource(data);
